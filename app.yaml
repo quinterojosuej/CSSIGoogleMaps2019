@@ -1,0 +1,39 @@
+application: maps-playground
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+
+
+- url: /scripts
+  static_dir: scripts
+
+- url: /styles
+  static_dir: styles
+
+- url: /images
+  static_dir: images  
+  # not necessary
+
+- url: .*
+  script: main.app
+
+libraries:
+- name: webapp2
+  version: "2.5.2"
+- name: jinja2
+  version: latest
+
+
+# This app.yaml is required to be formatted to work
+# Our display is javascript based and needs its css file to 
+# not be weirdly formatted
+# IF CSS IS NEEDED ON THE HTML FILE CSS CAN BE ADDED TO THE TOP OF THE FILE!
+# DO NOT FORGET TO HAVE index.yaml IN THE SAME DIRECTORY, app.yaml IS NOT 
+# THE ONLY REQUIRED YAML FILE
+
+# - url: /favicon\.ico
+#   static_files: favicon.ico
+#   upload: favicon\.ico
